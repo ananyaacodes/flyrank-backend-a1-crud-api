@@ -9,4 +9,11 @@ app = FastAPI(
 
 @app.get("/", summary="API info")
 def root():
-    return {"message": "Hello, server!"}
+    """Describes the API."""
+    return {"name": "Task API", "version": "1.0", "endpoints": ["/tasks"]}
+
+
+@app.get("/health", summary="Health check")
+def health():
+    """Used to check that the server is alive."""
+    return {"status": "ok"}
